@@ -1,64 +1,23 @@
 import React, {useState} from "react";
 
-const App = () =>{
-  const initialObj = [
-    {
-      id: 1,
-      firstName: "Sudharshan",
-      lastName: "Badri",
-      age: 15
-    },
-    {
-      id: 2,
-      firstName: "Sudharshan",
-      lastName: "Badri",
-      age: 15
-    },
-    {
-      id: 3,
-      firstName: "Sudharshan",
-      lastName: "Badri",
-      age: 15
-    },
-    {
-      id: 4,
-      firstName: "Sudharshan",
-      lastName: "Badri",
-      age: 15
-    }
-];
-
-  const [data,setData] = useState(initialObj)
-
-    console.log()
-  const deleteProfile = (id) =>{
-    const filterData = data.filter((eachItem)=>{
-      return eachItem.id !== id
-    })
-   console.log(filterData)
-   setData(filterData)
+const App = () => {
+  const [showData, setShowData] = useState(true)
+   const hideData = () => {
+              setShowData(!showData)
   }
-  
-   return(
+  return (
     <div>
-        <ul>
-        {
-          data.map((eachItem,index) => {
-            const {id, firstName, lastName, age} = eachItem
-              return <li key = {index}>
-                          <div> firstName : {firstName}</div>
-                          <div> lastName : {lastName}</div>
-                          <div> age : {age}</div>
-                          <button onClick = {()=> deleteProfile(id)}>del lastNam</button>
-                     </li>
-          })
-         }</ul>
+     <button onClick={hideData}>{showData ? "hide":"show"}</button>
+     {showData ? (
+      
+        <div>
+        Nice nice, that’s a good start. But what if we want to introduce the ellipsis not on the first line but somewhere, say, the third line of text?
+      </div>
+     ): (<h1> jio jax</h1>)}
+       
     </div>
-   )
-
-  
+  )
 }
-
 
 
 export default App;
