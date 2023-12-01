@@ -21,9 +21,9 @@ const App = () => {
         
   return (
     <div>
-      <button onClick={decrementCount}>-</button>
+      <button onClick={decrementCount}>decrimentCount</button>
       <span>count: {count}</span>
-      <button onClick = {incrementCount}>+</button>
+      <button onClick = {incrementCount}>incrementCount</button>
     </div>
   )
 }
