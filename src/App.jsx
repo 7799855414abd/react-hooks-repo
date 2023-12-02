@@ -6,16 +6,14 @@ const Index = () =>{
   const [password,setPassword] = useState("")
 
 
-const changeFirstName = (e) => {
-     setfirstName(e.target.value)
-}
-
-const changeEmail = (e) => {
-  setEmail(e.target.value)
-}
-
-const changePassword = (e) => {
-  setPassword(e.target.value)
+const handleInputChange = (e,name) => {
+  if (name === "firstName"){
+    setfirstName(e.target.value);
+  }else if(name === "email"){
+    setEmail(e.target.value);
+  }else if(name === "password"){
+    setPassword(e.target.value);
+  }
 }
 const changeDefault = (e) => {
   e.preventDefault();
@@ -35,20 +33,20 @@ console.log(userObj)
              <input type = "text" name = "firstName" 
                     id = "firstName"   placeholder="enter your name"
                     value = {firstName}
-                    onChange = {changeFirstName}
+                    onChange = {(e) => handleInputChange(e,"firstName")}
                     />
         </div>
         <div className="form-content">
              <input type = "text" name = "email" 
                     id = "email"   placeholder="enter your email"
                     value = {email}
-                    onChange = {changeEmail}/>
+                    onChange = {(e) => handleInputChange(e,"email")}/>
         </div>
         <div className="form-content">
              <input type = "password" name = "password" 
                     id = "password" placeholder="enter your password"
                     value = {password}
-                    onChange = {changePassword}/>
+                    onChange = {(e) => handleInputChange(e,"password")}/>
         </div>  
            
             <button type = "submit"
