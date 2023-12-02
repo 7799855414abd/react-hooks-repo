@@ -7,12 +7,16 @@ const Index = () =>{
 
 
 const handleInputChange = (e,name) => {
-  if (name === "firstName"){
-    setfirstName(e.target.value);
-  }else if(name === "email"){
-    setEmail(e.target.value);
-  }else if(name === "password"){
-    setPassword(e.target.value);
+  switch(name){
+    case("firstName"):
+       setfirstName(e.target.value)
+       break;
+    case("email"):
+       setEmail(e.target.value)
+       break;
+    case("password"):
+       setPassword(e.target.value)
+       break;
   }
 }
 const changeDefault = (e) => {
