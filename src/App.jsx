@@ -1,24 +1,67 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  const [showData, setShowData] = useState(true)
-   const hideData = () => {
-              setShowData(!showData)
-              console.log(showData)
-  }
+const Index = () =>{
+  const [firstName,setfirstName] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+
+
+const changeFirstName = (e) => {
+     setfirstName(e.target.value)
+}
+
+const changeEmail = (e) => {
+  setEmail(e.target.value)
+}
+
+const changePassword = (e) => {
+  setPassword(e.target.value)
+}
+const changeDefault = (e) => {
+  e.preventDefault();
+}
+
+let userObj = {
+  firstName:firstName,
+  email:email,
+  password:password,
+}
+
+console.log(userObj)
   return (
     <div>
-     <button onClick={hideData}>{showData ? "hide":"show"}</button>
-     {showData ? (
-      
-        <div>
-        Nice nice, that’s a good start. But what if we want to introduce the ellipsis not on the first line but somewhere, say, the third line of text?
-      </div>
-     ): (<h1> jio jax</h1>)}
-       
+      <form>
+        <div className="form-content">
+             <input type = "text" name = "firstName" 
+                    id = "firstName"   placeholder="enter your name"
+                    value = {firstName}
+                    onChange = {changeFirstName}
+                    />
+        </div>
+        <div className="form-content">
+             <input type = "text" name = "email" 
+                    id = "email"   placeholder="enter your email"
+                    value = {email}
+                    onChange = {changeEmail}/>
+        </div>
+        <div className="form-content">
+             <input type = "password" name = "password" 
+                    id = "password" placeholder="enter your password"
+                    value = {password}
+                    onChange = {changePassword}/>
+        </div>  
+           
+            <button type = "submit"
+              onClick={changeDefault}
+            >submit</button>
+      </form>
     </div>
   )
 }
 
 
-export default App;
+
+   
+
+
+export default Index;
