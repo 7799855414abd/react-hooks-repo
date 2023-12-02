@@ -4,6 +4,7 @@ const App = () => {
   const [showData, setShowData] = useState(true)
    const hideData = () => {
               setShowData(!showData)
+              console.log(showData)
   }
   return (
     <div>
